@@ -1,0 +1,642 @@
+{
+	"info": {
+		"_postman_id": "374240c4-2ffa-45d8-841e-e83c168c6c66",
+		"name": "API #1. Данные о тарифах на проезд в городском пассажирском транспорте",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23434795"
+	},
+	"item": [
+		{
+			"name": "ТК#1. Выполнить неавторизованный GET-запрос (позитив)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://spb-classif.gate.petersburg.ru/api/v2/datasets/172/versions/latest/data/202/",
+					"protocol": "https",
+					"host": [
+						"spb-classif",
+						"gate",
+						"petersburg",
+						"ru"
+					],
+					"path": [
+						"api",
+						"v2",
+						"datasets",
+						"172",
+						"versions",
+						"latest",
+						"data",
+						"202",
+						""
+					]
+				},
+				"description": "GET Запрос на выгрузку  \nданных"
+			},
+			"response": [
+				{
+					"name": "ТК#1. Выполнить неавторизованный GET-запрос (позитив)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://spb-classif.gate.petersburg.ru/api/v2/datasets/172/versions/latest/data/202/",
+							"protocol": "https",
+							"host": [
+								"spb-classif",
+								"gate",
+								"petersburg",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v2",
+								"datasets",
+								"172",
+								"versions",
+								"latest",
+								"data",
+								"202",
+								""
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 27 Apr 2023 19:17:01 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Max-Age",
+							"value": "5"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\"message\":\"Missing JWT token in request\"}\n"
+				}
+			]
+		},
+		{
+			"name": "ТК#2. Выполнить авторизованный GET-запрос (позитив)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJhU1RaZm42bHpTdURYcUttRkg1SzN5UDFhT0FxUkhTNm9OendMUExaTXhFIn0.eyJleHAiOjE3Nzg0ODM3NzYsImlhdCI6MTY4Mzc4OTM3NiwianRpIjoiNjQxNGE1MzktMTZkYS00NDU1LTg0ZWItNmYwNTAwZjAzZTkyIiwiaXNzIjoiaHR0cHM6Ly9rYy5wZXRlcnNidXJnLnJ1L3JlYWxtcy9lZ3MtYXBpIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjNmYTZlNTIxLWU0MmEtNDZlMy05MzQ0LTZiNGQ2YzllNjQ4NyIsInR5cCI6IkJlYXJlciIsImF6cCI6ImFkbWluLXJlc3QtY2xpZW50Iiwic2Vzc2lvbl9zdGF0ZSI6IjExMWE2MTc2LWZhMzMtNDY4Yy1hYTUzLTFjOTc1ZTgzNDYxYiIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZWdzLWFwaSIsIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJzaWQiOiIxMTFhNjE3Ni1mYTMzLTQ2OGMtYWE1My0xYzk3NWU4MzQ2MWIiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJWaWt0b3IgS2FycGluaW4iLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJjNWE3NDc5NGRhMGQzMGU4M2Q5NGIyYTlmZWZjZmY5MiIsImdpdmVuX25hbWUiOiJWaWt0b3IiLCJmYW1pbHlfbmFtZSI6IkthcnBpbmluIn0.0qqq_PVS12KYxy5CbaXkfMqMaqsCchCCmAuyhi5QQ5_A9aflf26tWPhkkbm8YrKvdNpLnDil5k_Fxjxy8YGlMHgaEEeygZG24m5vDNrKB-uZkd0J6mpFmciqHzwA80kLXgUeiiFGTg4a2rr0ZTLbLHTJorGIPe_nHfafcTDJkxW-9peoVywhtkrJnqUnTJ5Nct8GAcIaxHIVxk-YjMw37MqtwVJoQPTKSYtTRRjOrcF1Usnoo-Odwa37o3FiJSj18V_MJnA8q4DDtiI-C5pNhFRTXcM3fI4f9WWzJiSshoA98rSoQ1Bf_8eVIWukmE2Vc2wEecXDMRCmDCYggAROVA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://spb-classif.gate.petersburg.ru/api/v2/datasets/172/versions/latest/data/202/",
+					"protocol": "https",
+					"host": [
+						"spb-classif",
+						"gate",
+						"petersburg",
+						"ru"
+					],
+					"path": [
+						"api",
+						"v2",
+						"datasets",
+						"172",
+						"versions",
+						"latest",
+						"data",
+						"202",
+						""
+					]
+				},
+				"description": "GET Запрос на выгрузку  \nданных"
+			},
+			"response": [
+				{
+					"name": "ТК#2. Выполнить авторизованный GET-запрос (позитив)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://spb-classif.gate.petersburg.ru/api/v2/datasets/172/versions/latest/data/202/",
+							"protocol": "https",
+							"host": [
+								"spb-classif",
+								"gate",
+								"petersburg",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v2",
+								"datasets",
+								"172",
+								"versions",
+								"latest",
+								"data",
+								"202",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 27 Apr 2023 19:17:27 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "14417"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 27 Apr 2023 19:18:05 GMT"
+						},
+						{
+							"key": "cache-control",
+							"value": "max-age=0, no-cache, no-store, must-revalidate, private"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "referrer-policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "x-frame-options",
+							"value": "DENY"
+						},
+						{
+							"key": "vary",
+							"value": "Origin, Cookie"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Max-Age",
+							"value": "5"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "*"
+						},
+						{
+							"key": "Apisix-Cache-Status",
+							"value": "MISS"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"count\": 42,\n    \"next\": \"https://spb-classif.gate.petersburg.ru/api/v2/datasets/172/versions/latest/data/202/?page=2\",\n    \"previous\": null,\n    \"results\": [\n        {\n            \"number\": 1,\n            \"type_of_ticket\": \"Месячный автобусный билет\",\n            \"coverage\": \"Городские автобусные маршруты регулярных перевозок с посадкой и высадкой пассажиров только в установленных остановочных пунктах\",\n            \"type\": \"Подорожник\",\n            \"district\": \"Санкт-Петерург\",\n            \"cost\": \"1965\",\n            \"validity\": null\n        },\n        {\n            \"number\": 2,\n            \"type_of_ticket\": \"Месячный комбинированный (трамвай, троллейбус, автобус) билет\",\n            \"coverage\": \"Городские трамвайные, троллейбусные маршруты и городские автобусные маршруты регулярных перевозок с посадкой и высадкой пассажиров только в установленных остановочных пунктах\",\n            \"type\": \"Подорожник\",\n            \"district\": \"Санкт-Петерург\",\n            \"cost\": \"2470\",\n            \"validity\": null\n        },\n        {\n            \"number\": 3,\n            \"type_of_ticket\": \"Месячный единый (трамвай, троллейбус, автобус, метро) билет\",\n            \"coverage\": \"Метрополитен, городские трамвайные, троллейбусные маршруты и городские автобусные маршруты регулярных перевозок с посадкой и высадкой пассажиров только в установленных остановочных пунктах\",\n            \"type\": \"Подорожник\",\n            \"district\": \"Санкт-Петерург\",\n            \"cost\": \"3665\",\n            \"validity\": null\n        },\n        {\n            \"number\": 4,\n            \"type_of_ticket\": \"Месячный именной автобусный билет для учащихся\",\n            \"coverage\": \"Городские и смежные межрегиональные автобусные маршруты регулярных перевозок с посадкой и высадкой пассажиров только в установленных остановочных пунктах\",\n            \"type\": \"Ученический\",\n            \"district\": \"Санкт-Петерург\",\n            \"cost\": \"430\",\n            \"validity\": null\n        },\n        {\n            \"number\": 5,\n            \"type_of_ticket\": \"Месячный именной единый (трамвай, троллейбус, автобус, метро) билет для учащихся\",\n            \"coverage\": \"Все виды наземного пассажирского маршрутного транспорта общего пользования в Санкт-Петербурге на маршрутах городских и смежных межрегиональных регулярных перевозок с посадкой и высадкой пассажиров только в установленных остановочных пунктах, а также метро\",\n            \"type\": \"Ученический\",\n            \"district\": \"Санкт-Петерург\",\n            \"cost\": \"650\",\n            \"validity\": null\n        },\n        {\n            \"number\": 6,\n            \"type_of_ticket\": \"Месячный именной единый (трамвай, троллейбус, автобус, метро) билет для студентов\",\n            \"coverage\": \"Все виды наземного пассажирского маршрутного транспорта общего пользования в Санкт-Петербурге на городских маршрутах регулярных перевозок с посадкой и высадкой пассажиров только в установленных остановочных пунктах, а также метро\",\n            \"type\": \"Студенческий, ISIC\",\n            \"district\": \"Санкт-Петерург\",\n            \"cost\": \"1305\",\n            \"validity\": null\n        },\n        {\n            \"number\": 7,\n            \"type_of_ticket\": \"Месячный именной комбинированный (трамвай, троллейбус, автобус) билет для студентов\",\n            \"coverage\": \"Все виды городского наземного пассажирского маршрутного транспорта общего пользования в Санкт-Петербурге на маршрутах регулярных перевозок с посадкой и высадкой пассажиров только в установленных остановочных пунктах\",\n            \"type\": \"Студенческий, ISIC\",\n            \"district\": \"Санкт-Петерург\",\n            \"cost\": \"655\",\n            \"validity\": null\n        },\n        {\n            \"number\": 8,\n            \"type_of_ticket\": \"Месячный именной билет метро для студентов\",\n            \"coverage\": \"Метрополитен\",\n            \"type\": \"Студенческий, ISIC\",\n            \"district\": \"Санкт-Петерург\",\n            \"cost\": \"740\",\n            \"validity\": null\n        },\n        {\n            \"number\": 9,\n            \"type_of_ticket\": \"Месячный единый (трамвай, троллейбус, автобус, метро) именной льготный билет\",\n            \"coverage\": \"Все виды наземного пассажирского маршрутного транспорта общего пользования в Санкт-Петербурге на маршрутах регулярных перевозок с посадкой и высадкой пассажиров только в установленных остановочных пунктах, а также метро\",\n            \"type\": \"ЕИЛБ (пенсионный)\",\n            \"district\": \"Санкт-Петерург\",\n            \"cost\": \"726\",\n            \"validity\": null\n        },\n        {\n            \"number\": 10,\n            \"type_of_ticket\": \"Месячный билет для проезда в метро\",\n            \"coverage\": \"Метрополитен\",\n            \"type\": \"Подорожник\",\n            \"district\": \"Санкт-Петерург\",\n            \"cost\": \"2700\",\n            \"validity\": null\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "ТК#3. Запросить наличие заголовка в ответе (позитив)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// pm.test(\"Status code is 200 / Статус код 200\", () => { //проверка статуса кода ответа\r",
+							"//   pm.expect(pm.response.code).to.eql(200);\r",
+							"// });\r",
+							"pm.test(\"Content-Type header is present / Проверка наличия заголовка ответа\", () => {\r",
+							"  pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"// pm.test(\"Content-Type header is application/json / Проверка заголовка ответа, имеющего определенный тип\", () => {\r",
+							"//   pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+							"// });\r",
+							"// pm.test(\"Cookie JSESSIONID is present / Проверка наличия файла cookie в ответе\", () => {\r",
+							"//   pm.expect(pm.cookies.has('JSESSIONID')).to.be.true;\r",
+							"// });\r",
+							"// pm.test(\"Response time is less than 200ms / Проверка времени отклика менее 200ms\", () => {\r",
+							"//   pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"// });\r",
+							"// pm.test(\"Body contains string / Проверка наличия в теле ответа строки\",() => {\r",
+							"// pm.expect(pm.response.text()).to.include(\"\");\r",
+							"// });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJhU1RaZm42bHpTdURYcUttRkg1SzN5UDFhT0FxUkhTNm9OendMUExaTXhFIn0.eyJleHAiOjE3ODM0NDU5MjAsImlhdCI6MTY4ODc1MTUyMCwianRpIjoiMWQzNGFkODQtNDhiYS00M2JhLWJkMTgtODVlZDI0YTA2MWQwIiwiaXNzIjoiaHR0cHM6Ly9rYy5wZXRlcnNidXJnLnJ1L3JlYWxtcy9lZ3MtYXBpIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6ImQ1NDExNjBhLTk5YWItNGY2My04ZDVhLWVkZDMyNGUxYzlhOCIsInR5cCI6IkJlYXJlciIsImF6cCI6ImFkbWluLXJlc3QtY2xpZW50Iiwic2Vzc2lvbl9zdGF0ZSI6ImJmNzEyYzM3LThiMmEtNDYzOC1iNDQ1LWIxNjE0ZmFjNjg4NSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZWdzLWFwaSIsIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJzaWQiOiJiZjcxMmMzNy04YjJhLTQ2MzgtYjQ0NS1iMTYxNGZhYzY4ODUiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiLQkNC90YLQvtC9INCX0Y_QsdC60LjQvSIsInByZWZlcnJlZF91c2VybmFtZSI6ImU2ODU3YWU2Y2NmZjQwMDhjYjVjNjQ4ODlmZmE0Y2Y0IiwiZ2l2ZW5fbmFtZSI6ItCQ0L3RgtC-0L0iLCJmYW1pbHlfbmFtZSI6ItCX0Y_QsdC60LjQvSJ9.zB3Xc5VYwhgYsZGMG2SSWru0fXkTezNCPawg8KXMVhs_2SA3aS_ClyGQXh117IWyrwgleCZeUU09JuJLhm1q5UqNgGHwo9HdIoeBmEyUa2oz7QRGRE2tACmP_IGCT5eiXP6jS88PXSwP3_X512CshEYpRTBrX8ST3F1fjnpz-81yp6LAJ7YCE4aoi72rjN-emZ2MzrPhZyDLe6EQ3_fAn7SMMwH0TFYZn8PKYXGOaR9nnN9Y0wWIO0nI8zMQ_DuJju8HBN55xTwwrQAPpvwoNZ47PaIVo_nFTqjwfyvwBLVAapbOv19uR8n3WzhZZDyEnMcb0oYMu59rYLLufu-pAg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://spb-classif.gate.petersburg.ru/api/v2/datasets/172/versions/latest/data/202/",
+					"protocol": "https",
+					"host": [
+						"spb-classif",
+						"gate",
+						"petersburg",
+						"ru"
+					],
+					"path": [
+						"api",
+						"v2",
+						"datasets",
+						"172",
+						"versions",
+						"latest",
+						"data",
+						"202",
+						""
+					]
+				},
+				"description": "GET Запрос на выгрузку  \nданных"
+			},
+			"response": [
+				{
+					"name": "ТК#3. Запросить наличие заголовка в ответе (позитив)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://spb-classif.gate.petersburg.ru/api/v2/datasets/172/versions/latest/data/202/",
+							"protocol": "https",
+							"host": [
+								"spb-classif",
+								"gate",
+								"petersburg",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v2",
+								"datasets",
+								"172",
+								"versions",
+								"latest",
+								"data",
+								"202",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 27 Apr 2023 19:17:46 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "14417"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 27 Apr 2023 19:18:23 GMT"
+						},
+						{
+							"key": "cache-control",
+							"value": "max-age=0, no-cache, no-store, must-revalidate, private"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "referrer-policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "x-frame-options",
+							"value": "DENY"
+						},
+						{
+							"key": "vary",
+							"value": "Origin, Cookie"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Max-Age",
+							"value": "5"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "*"
+						},
+						{
+							"key": "Apisix-Cache-Status",
+							"value": "MISS"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"count\": 42,\n    \"next\": \"https://spb-classif.gate.petersburg.ru/api/v2/datasets/172/versions/latest/data/202/?page=2\",\n    \"previous\": null,\n    \"results\": [\n        {\n            \"number\": 1,\n            \"type_of_ticket\": \"Месячный автобусный билет\",\n            \"coverage\": \"Городские автобусные маршруты регулярных перевозок с посадкой и высадкой пассажиров только в установленных остановочных пунктах\",\n            \"type\": \"Подорожник\",\n            \"district\": \"Санкт-Петерург\",\n            \"cost\": \"1965\",\n            \"validity\": null\n        },\n        {\n            \"number\": 2,\n            \"type_of_ticket\": \"Месячный комбинированный (трамвай, троллейбус, автобус) билет\",\n            \"coverage\": \"Городские трамвайные, троллейбусные маршруты и городские автобусные маршруты регулярных перевозок с посадкой и высадкой пассажиров только в установленных остановочных пунктах\",\n            \"type\": \"Подорожник\",\n            \"district\": \"Санкт-Петерург\",\n            \"cost\": \"2470\",\n            \"validity\": null\n        },\n        {\n            \"number\": 3,\n            \"type_of_ticket\": \"Месячный единый (трамвай, троллейбус, автобус, метро) билет\",\n            \"coverage\": \"Метрополитен, городские трамвайные, троллейбусные маршруты и городские автобусные маршруты регулярных перевозок с посадкой и высадкой пассажиров только в установленных остановочных пунктах\",\n            \"type\": \"Подорожник\",\n            \"district\": \"Санкт-Петерург\",\n            \"cost\": \"3665\",\n            \"validity\": null\n        },\n        {\n            \"number\": 4,\n            \"type_of_ticket\": \"Месячный именной автобусный билет для учащихся\",\n            \"coverage\": \"Городские и смежные межрегиональные автобусные маршруты регулярных перевозок с посадкой и высадкой пассажиров только в установленных остановочных пунктах\",\n            \"type\": \"Ученический\",\n            \"district\": \"Санкт-Петерург\",\n            \"cost\": \"430\",\n            \"validity\": null\n        },\n        {\n            \"number\": 5,\n            \"type_of_ticket\": \"Месячный именной единый (трамвай, троллейбус, автобус, метро) билет для учащихся\",\n            \"coverage\": \"Все виды наземного пассажирского маршрутного транспорта общего пользования в Санкт-Петербурге на маршрутах городских и смежных межрегиональных регулярных перевозок с посадкой и высадкой пассажиров только в установленных остановочных пунктах, а также метро\",\n            \"type\": \"Ученический\",\n            \"district\": \"Санкт-Петерург\",\n            \"cost\": \"650\",\n            \"validity\": null\n        },\n        {\n            \"number\": 6,\n            \"type_of_ticket\": \"Месячный именной единый (трамвай, троллейбус, автобус, метро) билет для студентов\",\n            \"coverage\": \"Все виды наземного пассажирского маршрутного транспорта общего пользования в Санкт-Петербурге на городских маршрутах регулярных перевозок с посадкой и высадкой пассажиров только в установленных остановочных пунктах, а также метро\",\n            \"type\": \"Студенческий, ISIC\",\n            \"district\": \"Санкт-Петерург\",\n            \"cost\": \"1305\",\n            \"validity\": null\n        },\n        {\n            \"number\": 7,\n            \"type_of_ticket\": \"Месячный именной комбинированный (трамвай, троллейбус, автобус) билет для студентов\",\n            \"coverage\": \"Все виды городского наземного пассажирского маршрутного транспорта общего пользования в Санкт-Петербурге на маршрутах регулярных перевозок с посадкой и высадкой пассажиров только в установленных остановочных пунктах\",\n            \"type\": \"Студенческий, ISIC\",\n            \"district\": \"Санкт-Петерург\",\n            \"cost\": \"655\",\n            \"validity\": null\n        },\n        {\n            \"number\": 8,\n            \"type_of_ticket\": \"Месячный именной билет метро для студентов\",\n            \"coverage\": \"Метрополитен\",\n            \"type\": \"Студенческий, ISIC\",\n            \"district\": \"Санкт-Петерург\",\n            \"cost\": \"740\",\n            \"validity\": null\n        },\n        {\n            \"number\": 9,\n            \"type_of_ticket\": \"Месячный единый (трамвай, троллейбус, автобус, метро) именной льготный билет\",\n            \"coverage\": \"Все виды наземного пассажирского маршрутного транспорта общего пользования в Санкт-Петербурге на маршрутах регулярных перевозок с посадкой и высадкой пассажиров только в установленных остановочных пунктах, а также метро\",\n            \"type\": \"ЕИЛБ (пенсионный)\",\n            \"district\": \"Санкт-Петерург\",\n            \"cost\": \"726\",\n            \"validity\": null\n        },\n        {\n            \"number\": 10,\n            \"type_of_ticket\": \"Месячный билет для проезда в метро\",\n            \"coverage\": \"Метрополитен\",\n            \"type\": \"Подорожник\",\n            \"district\": \"Санкт-Петерург\",\n            \"cost\": \"2700\",\n            \"validity\": null\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "ТК#4. Запросить некорректный Content-Type заголовка ответа (негатив)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Content-Type header is application/json / Проверка заголовка ответа, имеющего определенный тип\", () => {\r",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJhU1RaZm42bHpTdURYcUttRkg1SzN5UDFhT0FxUkhTNm9OendMUExaTXhFIn0.eyJleHAiOjE3ODM0NDU5MjAsImlhdCI6MTY4ODc1MTUyMCwianRpIjoiMWQzNGFkODQtNDhiYS00M2JhLWJkMTgtODVlZDI0YTA2MWQwIiwiaXNzIjoiaHR0cHM6Ly9rYy5wZXRlcnNidXJnLnJ1L3JlYWxtcy9lZ3MtYXBpIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6ImQ1NDExNjBhLTk5YWItNGY2My04ZDVhLWVkZDMyNGUxYzlhOCIsInR5cCI6IkJlYXJlciIsImF6cCI6ImFkbWluLXJlc3QtY2xpZW50Iiwic2Vzc2lvbl9zdGF0ZSI6ImJmNzEyYzM3LThiMmEtNDYzOC1iNDQ1LWIxNjE0ZmFjNjg4NSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZWdzLWFwaSIsIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJzaWQiOiJiZjcxMmMzNy04YjJhLTQ2MzgtYjQ0NS1iMTYxNGZhYzY4ODUiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiLQkNC90YLQvtC9INCX0Y_QsdC60LjQvSIsInByZWZlcnJlZF91c2VybmFtZSI6ImU2ODU3YWU2Y2NmZjQwMDhjYjVjNjQ4ODlmZmE0Y2Y0IiwiZ2l2ZW5fbmFtZSI6ItCQ0L3RgtC-0L0iLCJmYW1pbHlfbmFtZSI6ItCX0Y_QsdC60LjQvSJ9.zB3Xc5VYwhgYsZGMG2SSWru0fXkTezNCPawg8KXMVhs_2SA3aS_ClyGQXh117IWyrwgleCZeUU09JuJLhm1q5UqNgGHwo9HdIoeBmEyUa2oz7QRGRE2tACmP_IGCT5eiXP6jS88PXSwP3_X512CshEYpRTBrX8ST3F1fjnpz-81yp6LAJ7YCE4aoi72rjN-emZ2MzrPhZyDLe6EQ3_fAn7SMMwH0TFYZn8PKYXGOaR9nnN9Y0wWIO0nI8zMQ_DuJju8HBN55xTwwrQAPpvwoNZ47PaIVo_nFTqjwfyvwBLVAapbOv19uR8n3WzhZZDyEnMcb0oYMu59rYLLufu-pAg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://spb-classif.gate.petersburg.ru/api/v2/datasets/172/versions/latest/data/202/",
+					"protocol": "https",
+					"host": [
+						"spb-classif",
+						"gate",
+						"petersburg",
+						"ru"
+					],
+					"path": [
+						"api",
+						"v2",
+						"datasets",
+						"172",
+						"versions",
+						"latest",
+						"data",
+						"202",
+						""
+					]
+				},
+				"description": "GET Запрос на выгрузку  \nданных"
+			},
+			"response": [
+				{
+					"name": "ТК#4. Запросить некорректный Content-Type заголовка ответа (негатив)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://spb-classif.gate.petersburg.ru/api/v2/datasets/172/versions/latest/data/202/",
+							"protocol": "https",
+							"host": [
+								"spb-classif",
+								"gate",
+								"petersburg",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v2",
+								"datasets",
+								"172",
+								"versions",
+								"latest",
+								"data",
+								"202",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 27 Apr 2023 19:18:19 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "14417"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 27 Apr 2023 19:18:57 GMT"
+						},
+						{
+							"key": "cache-control",
+							"value": "max-age=0, no-cache, no-store, must-revalidate, private"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "referrer-policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "x-frame-options",
+							"value": "DENY"
+						},
+						{
+							"key": "vary",
+							"value": "Origin, Cookie"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Max-Age",
+							"value": "5"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "*"
+						},
+						{
+							"key": "Apisix-Cache-Status",
+							"value": "MISS"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"count\": 42,\n    \"next\": \"https://spb-classif.gate.petersburg.ru/api/v2/datasets/172/versions/latest/data/202/?page=2\",\n    \"previous\": null,\n    \"results\": [\n        {\n            \"number\": 1,\n            \"type_of_ticket\": \"Месячный автобусный билет\",\n            \"coverage\": \"Городские автобусные маршруты регулярных перевозок с посадкой и высадкой пассажиров только в установленных остановочных пунктах\",\n            \"type\": \"Подорожник\",\n            \"district\": \"Санкт-Петерург\",\n            \"cost\": \"1965\",\n            \"validity\": null\n        },\n        {\n            \"number\": 2,\n            \"type_of_ticket\": \"Месячный комбинированный (трамвай, троллейбус, автобус) билет\",\n            \"coverage\": \"Городские трамвайные, троллейбусные маршруты и городские автобусные маршруты регулярных перевозок с посадкой и высадкой пассажиров только в установленных остановочных пунктах\",\n            \"type\": \"Подорожник\",\n            \"district\": \"Санкт-Петерург\",\n            \"cost\": \"2470\",\n            \"validity\": null\n        },\n        {\n            \"number\": 3,\n            \"type_of_ticket\": \"Месячный единый (трамвай, троллейбус, автобус, метро) билет\",\n            \"coverage\": \"Метрополитен, городские трамвайные, троллейбусные маршруты и городские автобусные маршруты регулярных перевозок с посадкой и высадкой пассажиров только в установленных остановочных пунктах\",\n            \"type\": \"Подорожник\",\n            \"district\": \"Санкт-Петерург\",\n            \"cost\": \"3665\",\n            \"validity\": null\n        },\n        {\n            \"number\": 4,\n            \"type_of_ticket\": \"Месячный именной автобусный билет для учащихся\",\n            \"coverage\": \"Городские и смежные межрегиональные автобусные маршруты регулярных перевозок с посадкой и высадкой пассажиров только в установленных остановочных пунктах\",\n            \"type\": \"Ученический\",\n            \"district\": \"Санкт-Петерург\",\n            \"cost\": \"430\",\n            \"validity\": null\n        },\n        {\n            \"number\": 5,\n            \"type_of_ticket\": \"Месячный именной единый (трамвай, троллейбус, автобус, метро) билет для учащихся\",\n            \"coverage\": \"Все виды наземного пассажирского маршрутного транспорта общего пользования в Санкт-Петербурге на маршрутах городских и смежных межрегиональных регулярных перевозок с посадкой и высадкой пассажиров только в установленных остановочных пунктах, а также метро\",\n            \"type\": \"Ученический\",\n            \"district\": \"Санкт-Петерург\",\n            \"cost\": \"650\",\n            \"validity\": null\n        },\n        {\n            \"number\": 6,\n            \"type_of_ticket\": \"Месячный именной единый (трамвай, троллейбус, автобус, метро) билет для студентов\",\n            \"coverage\": \"Все виды наземного пассажирского маршрутного транспорта общего пользования в Санкт-Петербурге на городских маршрутах регулярных перевозок с посадкой и высадкой пассажиров только в установленных остановочных пунктах, а также метро\",\n            \"type\": \"Студенческий, ISIC\",\n            \"district\": \"Санкт-Петерург\",\n            \"cost\": \"1305\",\n            \"validity\": null\n        },\n        {\n            \"number\": 7,\n            \"type_of_ticket\": \"Месячный именной комбинированный (трамвай, троллейбус, автобус) билет для студентов\",\n            \"coverage\": \"Все виды городского наземного пассажирского маршрутного транспорта общего пользования в Санкт-Петербурге на маршрутах регулярных перевозок с посадкой и высадкой пассажиров только в установленных остановочных пунктах\",\n            \"type\": \"Студенческий, ISIC\",\n            \"district\": \"Санкт-Петерург\",\n            \"cost\": \"655\",\n            \"validity\": null\n        },\n        {\n            \"number\": 8,\n            \"type_of_ticket\": \"Месячный именной билет метро для студентов\",\n            \"coverage\": \"Метрополитен\",\n            \"type\": \"Студенческий, ISIC\",\n            \"district\": \"Санкт-Петерург\",\n            \"cost\": \"740\",\n            \"validity\": null\n        },\n        {\n            \"number\": 9,\n            \"type_of_ticket\": \"Месячный единый (трамвай, троллейбус, автобус, метро) именной льготный билет\",\n            \"coverage\": \"Все виды наземного пассажирского маршрутного транспорта общего пользования в Санкт-Петербурге на маршрутах регулярных перевозок с посадкой и высадкой пассажиров только в установленных остановочных пунктах, а также метро\",\n            \"type\": \"ЕИЛБ (пенсионный)\",\n            \"district\": \"Санкт-Петерург\",\n            \"cost\": \"726\",\n            \"validity\": null\n        },\n        {\n            \"number\": 10,\n            \"type_of_ticket\": \"Месячный билет для проезда в метро\",\n            \"coverage\": \"Метрополитен\",\n            \"type\": \"Подорожник\",\n            \"district\": \"Санкт-Петерург\",\n            \"cost\": \"2700\",\n            \"validity\": null\n        }\n    ]\n}"
+				}
+			]
+		}
+	]
+}
